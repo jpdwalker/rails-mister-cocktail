@@ -6,20 +6,21 @@
     </h1>
   </div>
 
-  <ol>
+  <ul class="justify-content-center">
     <% @doses.each do |dose| %>
       <li>
-        name: <%= dose.ingredient.name %>
-        description: <%= dose.description %>
+        <%= dose.description %>
+        <br>
+        <%= dose.ingredient.name %>
+        <br>
         <%= link_to "delete", dose_path(dose),
         method: :delete,
-        data: { confirm: "Are you sure you want to delete this task?" }  %>
-
-
+        data: { confirm: "Are you sure you want to delete this dose?" }  %>
       </li>
     <% end %>
-  </ol>
+  </ul>
 
-  <%= link_to 'Back', cocktails_path  %>
   <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail) %>
+  <br>
+  <%= link_to 'Back', cocktails_path  %>
 </div>
